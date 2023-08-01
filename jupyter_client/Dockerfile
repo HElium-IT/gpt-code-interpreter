@@ -79,5 +79,5 @@ RUN mkdir /mnt/data
 # Make ports 5008 and 8888 available to the world outside this container
 EXPOSE 5008 8888
 
-# Run app.py and the Jupyter notebook server when the container launches
-CMD ["sh", "-c", "python3 app.py & jupyter notebook --ip 0.0.0.0 --port 8888 --no-browser --allow-root"]
+ADD entrypoint.sh /mnt/jupyter/entrypoint.sh
+ENTRYPOINT [ "/mnt/jupyter/entrypoint.sh" ]
