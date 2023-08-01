@@ -29,7 +29,6 @@ Here is a short demo of the project:
 
 [![Demo Video](http://i3.ytimg.com/vi/g7rnSWRVtXc/hqdefault.jpg)](http://www.youtube.com/watch?v=g7rnSWRVtXc "Demo Video")
 
-
 ## Repository Structure
 
 This repository consists of three directories:
@@ -40,38 +39,43 @@ This repository consists of three directories:
 
 ## Getting Started
 
-Before beginning, please ensure you have Docker, Node.js, and npm installed.
+Before beginning, please ensure you have Docker installed.
 
 ### How to Install
 
-Here are the installation instructions:
+Here are the installation instructions, just make sure to open the terminal in the directory with the docker-compose file:
 
-#### Step 1: Docker Image Creation
-
-Navigate to the root directory containing the `Dockerfile` and enter the Docker build command.
+#### Step 1: Start the docker compose
 
 ```bash
-docker build -t jupyter_api .
+docker-compose up --build -d
 ```
 
-#### Step 2: Docker Container Deployment
+#### Step 2: Enjoy the chat bot
 
-Upon the Docker image's successful build, start the Docker container with:
+The Jupyter server will be running on http://localhost:8888 and serving API on http://localhost:5008.
+
+The App server should will be running at http://localhost:4050.
+
+Open your browser and go to http://localhost:3000 to start chatting with the bot.
+
+#### Step 3: Follow the logs
 
 ```bash
-docker run -p 5008:5008 -p 8888:8888 jupyter_api
+docker-compose logs -f
 ```
 
+#### Step 4: Stop the docker compose
 
-### Step 3: Install Dependencies
+```bash
+docker-compose down
+```
 
-Navigate to the `client` and `server` folders and install the dependencies using the `npm install` command.
+#### Step 5: Remove the docker compose containers, volumes and images
 
-
-### Step 4: Run the Server and Client
-
-Then, start the server and client by navigating into their respective directories and using the `npm start` command.
-
+```bash
+docker-compose down -v --rmi all
+```
 
 ## To-Do
 
