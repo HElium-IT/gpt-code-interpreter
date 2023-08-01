@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  # Server Container.
+  server:
+    build: ./server
+    volumes:
+      - ./server:/server/app
+    ports:
+     - 4050:4050
+    command: --start
+    networks:
+      - default
+  
+  # Client Container.
+  client:
+    build: ./client
+    volumes:
+      - ./client:/client/app
+    ports:
+      - 3000:3000
+    command: --start
+    networks:
+      - default
+  
+  # Jupyter Container.
+  # jupyter:
+  #   build: ./jupyter_client
+  #   ports:
+  #     - 8888:8888
+  #     - 5008:5008
+  #   command: --start
+  #   networks:
+  #     - default
+
+networks:
+  default:
+    name: my-network
