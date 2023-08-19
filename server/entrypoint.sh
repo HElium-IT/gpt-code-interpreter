@@ -1,8 +1,6 @@
 #!/bin/sh
 
 start () {
-    echo "Copying node_modules into app dir"
-    cp -r /server/cache/node_modules/. /server/app/node_modules/
     echo "Starting server"
     exec npm start
 }

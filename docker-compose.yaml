@@ -24,14 +24,14 @@ services:
       - default
   
   # Jupyter Container.
-  # jupyter:
-  #   build: ./jupyter_client
-  #   ports:
-  #     - 8888:8888
-  #     - 5008:5008
-  #   command: --start
-  #   networks:
-  #     - default
+  jupyter:
+    build: ./jupyter_client
+    ports:
+      - 8888:8888
+      - 5008:5008
+    command: --start
+    networks:
+      - default
 
 networks:
   default:
